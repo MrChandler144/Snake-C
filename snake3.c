@@ -210,10 +210,12 @@ int main(void)
 			// increase the counter
 			tick++;
 
+			printf("\x1b[2J");
+
 			// now we need to run a game tick
 			runAGameTick(grid, &age, &direction, &oldDirection, &headRow, &headCol, &isSnakeAlive);
-
-			printf("\n");
+			
+			printf("\x1b[H");
 			
 			// and finally set the speed for the next tick
 			speed = START_SPEED - age*perStep;
